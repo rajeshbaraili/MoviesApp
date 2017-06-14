@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "315968498038",
+    "project_id": "moviesapp-1496963041422"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315968498038:android:81bf89b888079971",
+        "android_client_info": {
+          "package_name": "com.example.rajesh.moviesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315968498038-msmtukmpll3b0qkca71cimq5dkmaao7i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rajesh.moviesapp",
+            "certificate_hash": "50684429b4f43f661e642cf2ea7bf5a199bf84d2"
+          }
+        },
+        {
+          "client_id": "315968498038-r932qagmk6i22lodgt9ii9sdo6k0h559.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrqSUmvD9kP3X9swCI05EI18o8iRDI-vE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
