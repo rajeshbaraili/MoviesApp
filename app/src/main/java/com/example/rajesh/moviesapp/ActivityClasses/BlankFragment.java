@@ -44,8 +44,7 @@ ViewPager viewPager;
         adapter.addFrag(new Popular(), "Popular");
         adapter.addFrag(new Toprated(), "Top Rated");
         adapter.addFrag(new Upcoming(), "Up Comming");
-        adapter.addFrag(new Upcoming(), "Up Comming");
-
+//
         viewPager.setAdapter(adapter);
     }
     class ViewPagerAdapter extends FragmentPagerAdapter {
