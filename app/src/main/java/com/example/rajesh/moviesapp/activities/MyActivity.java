@@ -3,14 +3,12 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.rajesh.moviesapp.R;
-import com.example.rajesh.moviesapp.services.ImageDownloadService;
 
 public class MyActivity extends Activity {
     //public MySimpleReceiver receiverForSimple;
@@ -41,14 +39,14 @@ public class MyActivity extends Activity {
 //		startService(i);
     }
 
-    public void onImageDownloadService(View v) {
-        // Construct our Intent specifying the Service
-        Intent i = new Intent(this, ImageDownloadService.class);
-        // Add extras to bundle
-        i.putExtra("url", "http://www.zastavki.com/pictures/1920x1200/2010/World_Australia_River_in_Australia_022164_.jpg");
-        // Start the service
-        startService(i);
-    }
+//    public void onImageDownloadService(View v) {
+//        // Construct our Intent specifying the Service
+//        Intent i = new Intent(this, ImageDownloadService.class);
+//        // Add extras to bundle
+//        i.putExtra("url", "http://www.zastavki.com/pictures/1920x1200/2010/World_Australia_River_in_Australia_022164_.jpg");
+//        // Start the service
+//        startService(i);
+//    }
 
     public void onStartAlarm(View v) {
         // Construct an intent that will execute the AlarmReceiver
