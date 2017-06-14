@@ -35,7 +35,7 @@ ViewPager viewPager;
 
 
         return view;
-//
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
