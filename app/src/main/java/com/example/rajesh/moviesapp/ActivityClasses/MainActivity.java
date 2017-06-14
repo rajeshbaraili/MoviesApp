@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity
     public void mainpage() {
         toolbar.setVisibility(View.VISIBLE);
         BlankFragment firstFragment = new BlankFragment();
-
+    Toast.makeText(this,"Huhhuu",Toast.LENGTH_LONG).show();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.lc, firstFragment).commit();
 

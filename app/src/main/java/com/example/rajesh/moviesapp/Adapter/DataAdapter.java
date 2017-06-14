@@ -48,7 +48,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     @Override
     public DataAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_row, parent, false);
 
 
         return new ViewHolder(view);
@@ -125,7 +125,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
         public ViewHolder(View view) {
             super(view);
             pb = (ProgressBar) view.findViewById(R.id.pb);
-            imageView = (ImageView) view.findViewById(R.id.movie_item_image);
+            imageView = (ImageView) view.findViewById(R.id.imageViewa);
 
            // tv_name = (TextView) view.findViewById(R.id.tv_name);
 
