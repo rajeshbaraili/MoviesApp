@@ -16,9 +16,9 @@ public class ImagePreviewActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.service_image_view);
 		Bitmap bmp = getIntent().getParcelableExtra("bitmap");
+		//Bitmap bitmap= Bitmap.createScaledBitmap(bmp,bmp.getHeight(),bmp.getWidth(),false);
 		ivPreview = (ImageView) findViewById(R.id.ivPreview);
 		ivPreview.setImageBitmap(bmp);
-
 	}
 
 	@Override
