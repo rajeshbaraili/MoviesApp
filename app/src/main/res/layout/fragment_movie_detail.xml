@@ -27,10 +27,10 @@
         android:layout_width="@dimen/details_poster_width"
         android:layout_height="@dimen/details_poster_height"
         android:layout_marginLeft="@dimen/margin_large"
-        android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginTop="@dimen/details_poster_margin_top"
         android:contentDescription="@string/content_desc_movie_poster"
-        android:src="@color/colorPoster" />
+        android:src="@drawable/download"
+        android:layout_below="@+id/backdrop"
+        android:layout_alignStart="@+id/synopsis"/>
 
     <TextView
         android:id="@+id/title"
@@ -123,36 +123,8 @@
         android:src="@drawable/ic_favorite_border_white_48dp"
         app:elevation="4dp" />
 
-    <TextView
-        android:id="@+id/movie_videos_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/synopsis"
-        android:layout_marginLeft="@dimen/margin_large"
-        android:layout_marginRight="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_large"
-        android:text="Trailers:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <HorizontalScrollView
-        android:id="@+id/container_videos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/movie_videos_header"
-        android:clipChildren="false">
-
-        <LinearLayout
-            android:id="@+id/detail_movie_videos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_large"
-            android:divider="#ccc"
-            android:dividerPadding="2dp"
-            android:orientation="horizontal"
-            android:showDividers="middle" />
-    </HorizontalScrollView>
-
-    <TextView
+        <TextView
         android:id="@+id/movie_reviews_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -174,17 +146,5 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/play_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/play_button"
-        android:src="@drawable/ic_play_arrow_white_48dp"
-        android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
-        android:text="play" />
-
-</RelativeLayout>
+    </RelativeLayout>
     </ScrollView>

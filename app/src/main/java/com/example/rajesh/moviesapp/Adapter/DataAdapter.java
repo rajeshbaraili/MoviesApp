@@ -59,10 +59,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
 
         final String url = "http://image.tmdb.org/t/p/w342/" + android.get(i).getPoster_path();
-     //   final String title = android.get(i).getTitle();
 
-
-       // holder.tv_name.setText("" + title);
 
         holder.pb.setVisibility(View.VISIBLE);
         Picasso.with(context)
@@ -83,33 +80,16 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
 
-//
-//                DetailView fragment =new DetailView();
-//                ((MainActivity)context).getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.lc, fragment)
-//                        .commit();
 
-              //  ListMusicFragment fragment = new ListMusicFragment();
-
-
-             DetailView fragmentone = new DetailView(android.get(i));
-                ((MainActivity)context).getSupportFragmentManager().beginTransaction()
+                DetailView fragmentone = new DetailView(android.get(i));
+                ((MainActivity) context).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.lc, fragmentone).commit();
-//                Bundle bundle = new Bundle();
-//                bundle.putParcelable("obj", android.get(i));
-//                fragmentone.setArguments(bundle);
 
-//                Intent in = new Intent(context, Fullimage.class);
-//
-//                in.putExtra("obj", android.get(i));
-//
-//               context.startActivity(in);
             }
         });
 
 
     }
-
 
 
     @Override
@@ -118,7 +98,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-      //  private TextView tv_name, tv_version, tv_api_level;
+
         ImageView imageView;
         ProgressBar pb;
 
@@ -127,7 +107,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
             pb = (ProgressBar) view.findViewById(R.id.pb);
             imageView = (ImageView) view.findViewById(R.id.imageViewa);
 
-           // tv_name = (TextView) view.findViewById(R.id.tv_name);
 
         }
     }

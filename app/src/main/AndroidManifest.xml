@@ -20,21 +20,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
-            <activity
-                android:name=".activities.ImagePreviewActivity"
-                android:exported="true"
-                android:label="title_activity_image_view"/>
-
-            <service
-                android:name=".services.ImageDownloadService"
-                android:exported="true"/>
-            <service android:name=".services.DirectReplyIntent"/>
-        </activity>
+                                      </activity>
         <activity
-            android:name=".activities.MyActivity"
-            android:label="@string/title_activity_my">
-        </activity>
+            android:name=".services.ImagePreviewActivity"
+            android:exported="true"
+            android:label="imageview"></activity>
+
+        <service
+            android:name=".services.ImageDownloadService"
+            android:exported="true" />
+
+        <service
+            android:name=".services.DirectReplyIntent"></service>
     </application>
 
 </manifest>

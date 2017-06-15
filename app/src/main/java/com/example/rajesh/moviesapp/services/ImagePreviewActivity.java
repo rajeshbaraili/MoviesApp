@@ -1,4 +1,4 @@
-package com.example.rajesh.moviesapp.activities;
+package com.example.rajesh.moviesapp.services;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -18,6 +18,7 @@ public class ImagePreviewActivity extends Activity {
 		Bitmap bmp = getIntent().getParcelableExtra("bitmap");
 		ivPreview = (ImageView) findViewById(R.id.ivPreview);
 		ivPreview.setImageBitmap(bmp);
+
 	}
 
 	@Override
@@ -26,5 +27,6 @@ public class ImagePreviewActivity extends Activity {
 		getMenuInflater().inflate(R.menu.image_view, menu);
 		return true;
 	}
+
 
 }

@@ -12,7 +12,6 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.RemoteInput;
 
 import com.example.rajesh.moviesapp.R;
-import com.example.rajesh.moviesapp.activities.ImagePreviewActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,13 +37,10 @@ public class ImageDownloadService extends IntentService {
     // Download the image and create notification
     @Override
     protected void onHandleIntent(Intent intent) {
-        // Extract additional values from the bundle
         String imageUrl = intent.getStringExtra("url");
         // Download image
         Bitmap bitmap = downloadImage(imageUrl);
         // Sleep to waste time
-        sleep(2000);
-        // Create completion notification
         createNotification(bitmap);
     }
 
@@ -63,10 +59,10 @@ public class ImageDownloadService extends IntentService {
     private void createNotification(Bitmap bmp) {
         // Resize bitmap
         Bitmap resizedBitmap = Bitmap
-                .createScaledBitmap(bmp, bmp.getWidth() / 5, bmp.getHeight() / 5, false);
+                .createScaledBitmap(bmp, bmp.getWidth() / 100, bmp.getHeight() / 100, false);
         // Construct pending intent to serve as action for notification item
         Intent intent = new Intent(this, ImagePreviewActivity.class);
-        intent.putExtra("bitmap", resizedBitmap);
+        intent.putExtra("bitmap",resizedBitmap);
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         // Create notification
@@ -153,5 +149,6 @@ public class ImageDownloadService extends IntentService {
             e.printStackTrace();
         }
     }
+
 
 }

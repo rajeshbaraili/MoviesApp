@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.rajesh.moviesapp.R;
-import com.example.rajesh.moviesapp.services.ImageDownloadService;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -214,20 +213,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
-//            Bundle bundle = new Bundle();
-//            bundle.putString("edttext","2");
-//// set Fragmentclass Arguments
-//            Nowshowing fragobj = new Nowshowing();
-//            fragobj.setArguments(bundle);
+//
         } else if (id == R.id.nav_slideshow) {
-            Intent i = new Intent(this, ImageDownloadService.class);
-            // Add extras to bundle
-            i.putExtra("url", "http://www.zastavki.com/pictures/1920x1200/2010/World_Australia_River_in_Australia_022164_.jpg");
-            // Start the service
-            startService(i);
-            Toast.makeText(this,"clickeddd",Toast.LENGTH_LONG).show();
+
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
