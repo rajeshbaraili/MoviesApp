@@ -1,7 +1,8 @@
-package com.example.rajesh.moviesapp.Tabs;
+package com.example.rajesh.moviesapp.Tabs.TV;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,9 +25,7 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AiringtodayFragment extends Fragment {
-
-
+public class NowPlayingFragment  extends Fragment {
     RecyclerView recyclerView;
     String nowplaying;
     LinearLayoutManager linearLayoutManager;
@@ -36,23 +35,30 @@ public class AiringtodayFragment extends Fragment {
     DataAdapter adapter;
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        adapter = new DataAdapter(getActivity());
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_airingtoday, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.movies_recycler_viewtv);
+
+        View view = inflater.inflate(R.layout.fragment_fragment1, container, false);
+
+        recyclerView = (RecyclerView) view.findViewById(R.id.movies_recycler_view);
         recyclerView.setHasFixedSize(true);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
-        nowplaying = "on_the_air";
+        nowplaying = "now_playing";
 
 
 
 
 
 
-        Call<NowshowingPoJo> call = RestClient.get().getontv(nowplaying);
+        Call<NowshowingPoJo> call = RestClient.get().getJSON("tv","on_the_air");
         call.enqueue(new Callback<NowshowingPoJo>() {
             @Override
             public void onResponse(Call<NowshowingPoJo> call, Response<NowshowingPoJo> response) {
@@ -78,7 +84,9 @@ public class AiringtodayFragment extends Fragment {
 
             }
         });
-         return view;
+
+        return  view;
     }
 
 }
+

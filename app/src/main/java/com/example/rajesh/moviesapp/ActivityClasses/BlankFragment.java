@@ -11,10 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.rajesh.moviesapp.R;
-import com.example.rajesh.moviesapp.Tabs.Nowshowing;
-import com.example.rajesh.moviesapp.Tabs.Popular;
-import com.example.rajesh.moviesapp.Tabs.Toprated;
-import com.example.rajesh.moviesapp.Tabs.Upcoming;
+import com.example.rajesh.moviesapp.Tabs.Movies.Nowshowing;
+import com.example.rajesh.moviesapp.Tabs.Movies.Popular;
+import com.example.rajesh.moviesapp.Tabs.Movies.Toprated;
+import com.example.rajesh.moviesapp.Tabs.Movies.Upcoming;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +40,12 @@ ViewPager viewPager;
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFrag(new Nowshowing(), "Now Showing");
-        adapter.addFrag(new Popular(), "Popular");
-        adapter.addFrag(new Toprated(), "Top Rated");
-        adapter.addFrag(new Upcoming(), "Up Comming");
+        adapter.addFrag(new Nowshowing(), "Now playing movies");
+        adapter.addFrag(new Popular(), " Popular movies");
+        adapter.addFrag(new Toprated(), " Top rated movies");
+        adapter.addFrag(new Upcoming(), "Upcoming movies");
+
+
 
         viewPager.setAdapter(adapter);
     }

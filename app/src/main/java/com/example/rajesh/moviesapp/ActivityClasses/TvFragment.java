@@ -12,34 +12,38 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.rajesh.moviesapp.R;
-import com.example.rajesh.moviesapp.Tabs.NowPlayingFragment;
-import com.example.rajesh.moviesapp.Tabs.PpularFragment;
-import com.example.rajesh.moviesapp.Tabs.Toprated;
+import com.example.rajesh.moviesapp.Tabs.TV.AiringtodayFragment;
+import com.example.rajesh.moviesapp.Tabs.TV.NowPlayingFragment;
+import com.example.rajesh.moviesapp.Tabs.TV.PpularFragment;
+import com.example.rajesh.moviesapp.Tabs.TV.TopratedTv;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TvFragment extends Fragment {
-
-
     ViewPager viewPager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_tv2, container, false);
+        View view=inflater.inflate(R.layout.activity_ma, container, false);
 
-        viewPager = (ViewPager)view.findViewById(R.id.viewtv);
+
+        viewPager = (ViewPager)view.findViewById(R.id.view);
         setupViewPager(viewPager);
-        TabLayout tabLayout = (TabLayout)view.findViewById(R.id.tabstv);
+        TabLayout  tabLayout = (TabLayout)view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+
         return view;
+
     }
+
     private void setupViewPager(ViewPager viewPager) {
         TvFragment.ViewPagerAdapter adapter = new TvFragment.ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFrag(new NowPlayingFragment(), "Now Playing");
-        adapter.addFrag(new PpularFragment(), "Popular");
-        adapter.addFrag(new Toprated(), "Airing Today");
-
+        adapter.addFrag(new PpularFragment(), "Popular TV shows");
+        adapter.addFrag(new TopratedTv(), "Top rated TV shows");
+        adapter.addFrag(new NowPlayingFragment(), "On the air TV");
+        adapter.addFrag(new AiringtodayFragment(), "Airing today");
 
         viewPager.setAdapter(adapter);
     }
@@ -72,6 +76,8 @@ public class TvFragment extends Fragment {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }}
+
+
 
 
 }

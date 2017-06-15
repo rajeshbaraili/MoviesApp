@@ -61,11 +61,11 @@ public class ImageDownloadService extends IntentService {
     // Construct compatible notification
     private void createNotification(Bitmap bmp) {
         // Resize bitmap
-        Bitmap resizedBitmap = Bitmap
-                .createScaledBitmap(bmp, bmp.getWidth()*5, bmp.getHeight() / 5, false);
-        // Construct pending intent to serve as action for notification item
+//        Bitmap resizedBitmap = Bitmap
+//                .createScaledBitmap(bmp, bmp.getWidth()*5, bmp.getHeight() / 5, false);
+//        // Construct pending intent to serve as action for notification item
         Intent intent = new Intent(this, ImagePreviewActivity.class);
-        intent.putExtra("bitmap", resizedBitmap);
+        intent.putExtra("bitmap", bmp);
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         // Create notification

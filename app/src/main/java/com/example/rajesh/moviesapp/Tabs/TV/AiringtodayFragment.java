@@ -1,4 +1,5 @@
-package com.example.rajesh.moviesapp.Tabs;
+package com.example.rajesh.moviesapp.Tabs.TV;
+
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,8 +22,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-public class Toprated extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class AiringtodayFragment  extends Fragment {
     RecyclerView recyclerView;
     String nowplaying;
     LinearLayoutManager linearLayoutManager;
@@ -41,15 +44,21 @@ public class Toprated extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment1, container, false);
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.rec);
+        recyclerView = (RecyclerView) view.findViewById(R.id.movies_recycler_view);
         recyclerView.setHasFixedSize(true);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
-        nowplaying="top_rated";
-        Call<NowshowingPoJo> call = RestClient.get().getJSON(nowplaying);
+        nowplaying = "now_playing";
+
+
+
+
+
+
+        Call<NowshowingPoJo> call = RestClient.get().getJSON("tv","airing_today");
         call.enqueue(new Callback<NowshowingPoJo>() {
             @Override
             public void onResponse(Call<NowshowingPoJo> call, Response<NowshowingPoJo> response) {
@@ -80,3 +89,4 @@ public class Toprated extends Fragment {
     }
 
 }
+

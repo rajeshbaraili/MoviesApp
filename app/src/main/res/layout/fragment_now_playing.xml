@@ -2,7 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.example.rajesh.moviesapp.Tabs.NowPlayingFragment">
+             tools:context="com.example.rajesh.moviesapp.Tabs.TV.NowPlayingFragment">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/main_swipe_refresh_layout"

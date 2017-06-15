@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -212,13 +211,14 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        display(id);
-if (id == R.id.nav_camera) {
 
+if (id == R.id.nav_camera) {
+    mainpage();
         } else if (id == R.id.nav_gallery) {
 //
+    mainpagea();
         } else if (id == R.id.nav_slideshow) {
-
+mainpagea();
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -232,33 +232,7 @@ if (id == R.id.nav_camera) {
         return true;
     }
 
-    private void display(int id) {
 
-        android.support.v4.app.Fragment fragment=null;
-        switch (id){
-            case R.id.nav_gallery:
-                fragment=new BlankFragment();
-                break;
-            case R.id.nav_slideshow:
-                fragment=new TvFragment();
-                break;
-            case R.id.nav_share:
-                signIn();
-                break;
-            case R.id.nav_send:
-                signOut();
-                break;
-
-        }
-        if(fragment!=null){
-            FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.lc,fragment);
-            fragmentTransaction.commit();
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-        }
-
-    }
 
     public void login() {
         toolbar.setVisibility(View.GONE);
@@ -269,7 +243,15 @@ if (id == R.id.nav_camera) {
 
 
     }
+    public void mainpagea() {
+        toolbar.setVisibility(View.VISIBLE);
+        TvFragment firstFragmenta = new TvFragment();
+        Toast.makeText(this,"Huhhuu",Toast.LENGTH_LONG).show();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.lc, firstFragmenta).commit();
 
+
+    }
     public void mainpage() {
         toolbar.setVisibility(View.VISIBLE);
         BlankFragment firstFragment = new BlankFragment();

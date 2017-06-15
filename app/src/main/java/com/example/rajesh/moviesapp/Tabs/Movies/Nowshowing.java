@@ -1,4 +1,4 @@
-package com.example.rajesh.moviesapp.Tabs;
+package com.example.rajesh.moviesapp.Tabs.Movies;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -48,14 +48,14 @@ public class Nowshowing extends Fragment {
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
-        nowplaying = "now_playing";
 
 
 
 
 
 
-            Call<NowshowingPoJo> call = RestClient.get().getJSON(nowplaying);
+
+            Call<NowshowingPoJo> call = RestClient.get().getJSON("movie","now_playing");
             call.enqueue(new Callback<NowshowingPoJo>() {
                 @Override
                 public void onResponse(Call<NowshowingPoJo> call, Response<NowshowingPoJo> response) {
