@@ -12,10 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.rajesh.moviesapp.R;
-import com.example.rajesh.moviesapp.Tabs.Nowshowing;
-import com.example.rajesh.moviesapp.Tabs.Popular;
+import com.example.rajesh.moviesapp.Tabs.NowPlayingFragment;
+import com.example.rajesh.moviesapp.Tabs.PpularFragment;
 import com.example.rajesh.moviesapp.Tabs.Toprated;
-import com.example.rajesh.moviesapp.Tabs.Upcoming;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,10 +36,10 @@ public class TvFragment extends Fragment {
     }
     private void setupViewPager(ViewPager viewPager) {
         TvFragment.ViewPagerAdapter adapter = new TvFragment.ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFrag(new Nowshowing(), "Now Playing");
-        adapter.addFrag(new Popular(), "Popular");
+        adapter.addFrag(new NowPlayingFragment(), "Now Playing");
+        adapter.addFrag(new PpularFragment(), "Popular");
         adapter.addFrag(new Toprated(), "Airing Today");
-        adapter.addFrag(new Upcoming(), "Up Comming");
+
 
         viewPager.setAdapter(adapter);
     }
