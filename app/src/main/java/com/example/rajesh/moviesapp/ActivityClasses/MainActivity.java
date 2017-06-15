@@ -171,7 +171,8 @@ public class MainActivity extends AppCompatActivity
 
     private void updateUI(boolean isSignedIn) {
         if (isSignedIn) {
-            mainpage();
+            shows="movie";
+            mainpage(shows);
 
         } else {
 
@@ -205,7 +206,9 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-    Fragmentone fragmentone;
+
+    String shows;
+    //Fragmentone fragmentone;
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -213,12 +216,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 if (id == R.id.nav_camera) {
-    mainpage();
+    shows="movie";
+    mainpage(shows);
         } else if (id == R.id.nav_gallery) {
-//
-    mainpagea();
+
+    shows="tv";
+    mainpage(shows);
         } else if (id == R.id.nav_slideshow) {
-mainpagea();
+
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -236,26 +241,19 @@ mainpagea();
 
     public void login() {
         toolbar.setVisibility(View.GONE);
-        fragmentone = new Fragmentone();
+        Fragmentone fragmentone = new Fragmentone();
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.lc, fragmentone).commit();
 
 
     }
-    public void mainpagea() {
-        toolbar.setVisibility(View.VISIBLE);
-        TvFragment firstFragmenta = new TvFragment();
-        Toast.makeText(this,"Huhhuu",Toast.LENGTH_LONG).show();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.lc, firstFragmenta).commit();
 
 
-    }
-    public void mainpage() {
+    public void mainpage(String shows) {
         toolbar.setVisibility(View.VISIBLE);
-        BlankFragment firstFragment = new BlankFragment();
-    Toast.makeText(this,"Huhhuu",Toast.LENGTH_LONG).show();
+        BlankFragment firstFragment = new BlankFragment(shows);
+    Toast.makeText(this,""+shows+" shows",Toast.LENGTH_LONG).show();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.lc, firstFragment).commit();
 

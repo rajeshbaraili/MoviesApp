@@ -15,6 +15,10 @@ import com.example.rajesh.moviesapp.Tabs.Movies.Nowshowing;
 import com.example.rajesh.moviesapp.Tabs.Movies.Popular;
 import com.example.rajesh.moviesapp.Tabs.Movies.Toprated;
 import com.example.rajesh.moviesapp.Tabs.Movies.Upcoming;
+import com.example.rajesh.moviesapp.Tabs.TV.AiringtodayFragment;
+import com.example.rajesh.moviesapp.Tabs.TV.NowPlayingFragment;
+import com.example.rajesh.moviesapp.Tabs.TV.PpularFragment;
+import com.example.rajesh.moviesapp.Tabs.TV.TopratedTv;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +26,11 @@ import java.util.List;
 
 public class BlankFragment extends Fragment {
 ViewPager viewPager;
+String show;
+    public BlankFragment(String shows) {
+        this.show=shows;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,14 +46,24 @@ ViewPager viewPager;
         return view;
 
     }
-
+int a=2;
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFrag(new Nowshowing(), "Now playing movies");
-        adapter.addFrag(new Popular(), " Popular movies");
-        adapter.addFrag(new Toprated(), " Top rated movies");
-        adapter.addFrag(new Upcoming(), "Upcoming movies");
+        if(show.equals("tv")) {
+            adapter.addFrag(new PpularFragment(), "Popular TV shows");
+            adapter.addFrag(new TopratedTv(), "Top rated TV shows");
+            adapter.addFrag(new NowPlayingFragment(), "On the air TV");
+            adapter.addFrag(new AiringtodayFragment(), "Airing today");
 
+            viewPager.setAdapter(adapter);
+        }else {
+
+            adapter.addFrag(new Nowshowing(), "Now playing movies");
+            adapter.addFrag(new Popular(), " Popular movies");
+            adapter.addFrag(new Toprated(), " Top rated movies");
+            adapter.addFrag(new Upcoming(), "Upcoming movies");
+
+        }
 
 
         viewPager.setAdapter(adapter);
@@ -52,7 +71,7 @@ ViewPager viewPager;
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String>  mFragmentTitleList = new ArrayList<>();
-        // DataAdapter adapter=new DataAdapter(mFragmentTitleList);
+
         public ViewPagerAdapter(FragmentManager fm) {
             super(fm);
         }
