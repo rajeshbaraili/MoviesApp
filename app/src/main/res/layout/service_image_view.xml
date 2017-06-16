@@ -19,4 +19,13 @@
         android:layout_alignParentTop="true"
         android:src="@android:drawable/title_bar_tall" />
 
+    <Button
+        android:id="@+id/save"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:onClick="save"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+   android:background="@drawable/imagesd"/>
+
 </RelativeLayout>

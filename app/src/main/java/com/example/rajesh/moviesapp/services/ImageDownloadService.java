@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.RemoteInput;
 
 import com.example.rajesh.moviesapp.R;
 
@@ -19,13 +18,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
-import static com.example.rajesh.moviesapp.services.DirectReplyIntent.KEY_NOTIFY_ID;
-import static com.example.rajesh.moviesapp.services.DirectReplyIntent.KEY_TEXT_REPLY;
-
 public class ImageDownloadService extends IntentService {
 
-    public static final int NOTIF_ID = 82;
+    public static final int NOTIF_ID = 60;
 
     long timestamp;
 
@@ -61,11 +56,11 @@ public class ImageDownloadService extends IntentService {
     // Construct compatible notification
     private void createNotification(Bitmap bmp) {
         // Resize bitmap
-//        Bitmap resizedBitmap = Bitmap
-//                .createScaledBitmap(bmp, bmp.getWidth()*5, bmp.getHeight() / 5, false);
-//        // Construct pending intent to serve as action for notification item
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bmp,150,250,false);
+                //.createScaledBitmap(bmp, bmp.getWidth(), bmp.getHeight() , false);
+        // Construct pending intent to serve as action for notification item
         Intent intent = new Intent(this, ImagePreviewActivity.class);
-        intent.putExtra("bitmap", bmp);
+        intent.putExtra("bitmap", resizedBitmap);
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         // Create notification
@@ -78,23 +73,7 @@ public class ImageDownloadService extends IntentService {
                         .bigPicture(bmp))
                 .setContentIntent(pIntent);
 
-        if (android.os.Build.VERSION.SDK_INT >= 24) {
 
-            Intent directReplyIntent = new Intent(this, DirectReplyIntent.class);
-            directReplyIntent.putExtra(KEY_NOTIFY_ID, NOTIF_ID);
-
-            int flags = FLAG_CANCEL_CURRENT;
-            PendingIntent directReplyPendingIntent =
-                    PendingIntent.getService(this, 0, directReplyIntent, flags);
-            // http://android-developers.blogspot.com/2016/06/notifications-in-android-n.html
-            RemoteInput remoteInput = new RemoteInput.Builder(KEY_TEXT_REPLY)
-                    .setLabel("Type Message").build();
-            NotificationCompat.Action action = new NotificationCompat.Action.Builder(
-                    R.drawable.ic_launcher, "Reply", directReplyPendingIntent)
-                    .addRemoteInput(remoteInput).build();
-            builder.addAction(action);
-
-        }
         Notification noti = builder.build();
 
         // Hide the notification after its selected

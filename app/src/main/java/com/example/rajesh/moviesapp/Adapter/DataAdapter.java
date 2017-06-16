@@ -60,7 +60,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
         final String url = "http://image.tmdb.org/t/p/w342/" + android.get(i).getPoster_path();
 
-
+        //http://image.tmdb.org/t/p/w342/rQEDHdG7PJcM9CMDyd1CwCNvkGA.jpg
         holder.pb.setVisibility(View.VISIBLE);
         Picasso.with(context)
                 .load(url)
